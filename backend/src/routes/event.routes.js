@@ -8,9 +8,9 @@ const router = Router();
 
 router.get("/", getEvents);
 
-router.post("/", createEvent);
+router.get("/:id", getEventById);
 
-router.put("/:id", getEventById);
+router.post("/", createEvent);
 
 router.put("/:id", updateEvent);
 
