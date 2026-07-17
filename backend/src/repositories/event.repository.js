@@ -22,7 +22,7 @@ class EventRepository{
     }
 
     async delete(id){
-        return Event.findByIdAndDelete(id);
+        return await Event.findByIdAndDelete(id);
     }
 
 }

@@ -8,7 +8,7 @@ class CategoryRepository {
     }
 
     async findById(id){
-        return Category.findById(id);
+        return await Category.findById(id);
     }
 
     async create(data) {
