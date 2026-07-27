@@ -1,25 +1,28 @@
 
 
+import authService from "../services/auth.service.js";
+
 export const register = async (req, res) => {
     try{
-        res.status(501).json({
-            message: "Register pending"
-        });
+        const user = await authService.register(
+            req.body
+        );
+        res.status(201).json(user);
+
     } catch (error) {
-        res.status(500).json({
+        res.status(400).json({
             message: error.message
         });
     }
 };
 
 export const login = async (req, res) => {
-    try{
-        res.status(501).json({
-            message: "Login pending"
-        });
-    } catch(error){
-        res.status(501).json({
-            message: error.message
-        });
-    }
+        try{
+            const result = await authService.login(req.body);
+            res.json(result);
+        } catch(error){
+            res.status(401).json({
+                message: error.message
+            });
+        }
 };
